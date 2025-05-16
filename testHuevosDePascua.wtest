@@ -1,12 +1,28 @@
 import huevosDePascua.*
+import chicos.*
+import terreno.*
+
+
 
 describe "group of tests" {
 
-  test "test 1" {
-    assert.equals(50+50, 100)
+  method inicialize(){
+    blisterHuevitos.agregarHuevos(14)
+    matrioshka.huevoDentro(blisterHuevitos)
+    matrioshka.ponerFLor(7)
+    terreno.esconderHuevo(matrioshka)
+    terreno.esconderHuevo(huevoRepostero)
+    terreno.esconderHuevo(conejo)
+    terreno.esconderHuevo(huevoMixto)
   }
-  test "test 2" {
-    assert.that(true)
+  test "el huevo de mayor calorias es la matrioshka" {
+    assert.equals(matrioshka, terreno.huevoDeMayorCalorias())
+  }
+  test "ana encontro el primer huevo" {
+    ana.comerHuevo()
+    assert.equals(3, terreno.huevosEscondidos().size())
+    assert.equals(2, terreno.faltanBlancos())
+
   }
 
 }
